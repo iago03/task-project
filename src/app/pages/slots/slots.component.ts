@@ -39,4 +39,8 @@ export class SlotsComponent {
   toggleExpansion() {
     this.isExpanded = !this.isExpanded;
   }
+
+  identify(index: number, item: any) {
+    return item._id;
+  }
 }

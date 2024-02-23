@@ -27,4 +27,8 @@ export class ContentComponent {
     private activatedRoute: ActivatedRoute,
     private slotService: SlotService
   ) {}
+
+  identify(index: number, item: any) {
+    return item.gameId;
+  }
 }

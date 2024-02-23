@@ -1,6 +1,6 @@
 <article class="cards-area">
   <div
-    *ngFor="let game of games()"
+    *ngFor="let game of games(); trackBy: identify"
     class="card"
     (mouseover)="isButtonVisible = true"
     (mouseout)="isButtonVisible = false"

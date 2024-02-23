@@ -16,28 +16,44 @@
             (info.filter === 'web:popular' && !currentFilter())
         }"
       >
-        <p>{{ info.filter === "web:popular" && !currentFilter() }}</p>
         <div class="item-content">
           <img
             [src]="'assets/img/filter-icons/' + info.svg"
             alt="icon"
             class="svg-container"
-            [ngClass]="{ 'img-active': info.filter === currentFilter() }"
+            [ngClass]="{
+              'img-active':
+                info.filter === currentFilter() ||
+                (info.filter === 'web:popular' && !currentFilter())
+            }"
           />
           <span
             class="info-name"
-            [ngClass]="{ 'active-category': info.filter === currentFilter() }"
+            [ngClass]="{
+              'active-category':
+                info.filter === currentFilter() ||
+                (info.filter === 'web:popular' && !currentFilter())
+            }"
             >{{ info.name }}</span
           >
           <span class="total-games">{{ info.totalGames }}</span>
         </div>
-        <div *ngIf="info.filter === currentFilter()" class="underline"></div>
+        <div
+          *ngIf="
+            info.filter === currentFilter() ||
+            (info.filter === 'web:popular' && !currentFilter())
+          "
+          class="underline"
+        ></div>
       </li>
     </ul>
 
     <div class="child-category" [ngClass]="{ expanded: isExpanded }">
       <div class="categories">
-        <div *ngFor="let provider of providers()" class="url-container">
+        <div
+          *ngFor="let provider of providers(); trackBy: identify"
+          class="url-container"
+        >
           <a
             [routerLink]="'category'"
             [queryParams]="{
