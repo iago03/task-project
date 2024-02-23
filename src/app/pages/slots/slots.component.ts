@@ -10,11 +10,18 @@ import {
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
 import { SlotService } from 'src/app/shared/services/slot.service';
 import { SlotCategoryNavBarInfo } from 'src/app/shared/const/slots';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-slots',
   standalone: true,
-  imports: [CommonModule, RouterLink, RouterOutlet, RouterLinkActive],
+  imports: [
+    CommonModule,
+    RouterLink,
+    RouterOutlet,
+    RouterLinkActive,
+    TranslateModule,
+  ],
   templateUrl: './slots.component.html',
   styleUrls: ['./slots.component.scss'],
 })

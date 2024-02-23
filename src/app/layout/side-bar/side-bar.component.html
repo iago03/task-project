@@ -1,5 +1,19 @@
 <main>
-  <section class="header-bar"></section>
+  <section class="header-bar">
+    <article class="button-array">
+      <div
+        *ngFor="let lang of languageArray"
+        class="button"
+        [ngClass]="{ active: lang.language === currentLanguage }"
+        (click)="switchLanguage(lang.language)"
+      >
+        <div class="img-container">
+          <img [src]="lang.icon" alt="" />
+        </div>
+        <p>{{ lang.title }}</p>
+      </div>
+    </article>
+  </section>
 
   <section class="side-bar">
     <article class="nav">
@@ -19,7 +33,7 @@
               class="icon"
             />
           </div>
-          <span class="link-text">{{ item.title }}</span>
+          <span class="link-text">{{ item.title | translate }}</span>
         </a>
       </div>
     </article>

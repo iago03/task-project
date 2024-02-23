@@ -1,30 +1,30 @@
 export const SlotCategoryNavBarInfo = [
   {
     svg: `top-slots.svg`,
-    name: 'Top Slots',
+    name: 'top_slots',
     filter: 'web:popular',
     totalGames: 0,
   },
   {
     svg: `favorites.svg`,
-    name: 'Favorites',
+    name: 'favorites',
     filter: 'web:favorites',
   },
   {
     svg: `new-games.svg`,
-    name: 'New Games',
+    name: 'new_games',
     filter: 'web:new_games',
     totalGames: 0,
   },
   {
     svg: `bonus.svg`,
-    name: 'Buy Bonus',
+    name: 'buy_bonus',
     filter: 'web:buy_bonus',
     totalGames: 0,
   },
   {
     svg: `history.svg`,
-    name: 'History',
+    name: 'history',
     filter: 'web:history',
   },
 ];

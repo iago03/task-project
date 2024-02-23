@@ -2,21 +2,21 @@ export const SideBarItem = [
   {
     route: '/sport',
     icon: 'sport.svg',
-    title: 'SPORT',
+    title: 'sport',
   },
   {
     route: '/live',
     icon: 'live.svg',
-    title: 'LIVE',
+    title: 'live',
   },
   {
     route: '/slots',
     icon: 'slots.svg',
-    title: 'SLOTS',
+    title: 'slots',
   },
   {
     route: '/casino',
     icon: 'casino.svg',
-    title: 'CASINO',
+    title: 'casino',
   },
 ];

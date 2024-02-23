@@ -34,7 +34,7 @@
                 info.filter === currentFilter() ||
                 (info.filter === 'web:popular' && !currentFilter())
             }"
-            >{{ info.name }}</span
+            >{{ info.name | translate }}</span
           >
           <span class="total-games">{{ info.totalGames }}</span>
         </div>
@@ -68,7 +68,7 @@
       </div>
 
       <button class="see-more" (click)="toggleExpansion()">
-        <span>{{ isExpanded ? "See Less" : "See More" }}</span>
+        <span>{{ (isExpanded ? "see_less" : "see_more") | translate }}</span>
         <img
           src="assets/img/expand.svg"
           alt="icon"
