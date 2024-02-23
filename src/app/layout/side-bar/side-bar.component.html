@@ -1,0 +1,31 @@
+<main>
+  <section class="header-bar"></section>
+
+  <section class="side-bar">
+    <article class="nav">
+      <a [routerLink]="'/'" class="logo">
+        <img src="assets/img/side-bar-icons/logo.svg" alt="logo" />
+      </a>
+      <div *ngFor="let item of sidebarItems" class="nav-item">
+        <a
+          href=""
+          [routerLink]="item.route"
+          routerLinkActive="active-link green-line-hover"
+        >
+          <div>
+            <img
+              [src]="'assets/img/side-bar-icons/' + item.icon"
+              alt="icon"
+              class="icon"
+            />
+          </div>
+          <span class="link-text">{{ item.title }}</span>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <section class="content">
+    <ng-content></ng-content>
+  </section>
+</main>

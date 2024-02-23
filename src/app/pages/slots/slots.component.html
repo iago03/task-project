@@ -1,0 +1,67 @@
+<section>
+  <article class="image-container">
+    <img src="assets/img/cover.svg" alt="img" />
+  </article>
+
+  <article class="category-container">
+    <ul class="navigation-list">
+      <li
+        *ngFor="let info of categoryNavBarInfo; index as i"
+        [routerLink]="'category'"
+        [queryParams]="{ filterType: 'category', filter: info.filter }"
+        class="category-item"
+        [ngClass]="{
+          active:
+            info.filter === currentFilter() ||
+            (info.filter === 'web:popular' && !currentFilter())
+        }"
+      >
+        <p>{{ info.filter === "web:popular" && !currentFilter() }}</p>
+        <div class="item-content">
+          <img
+            [src]="'assets/img/filter-icons/' + info.svg"
+            alt="icon"
+            class="svg-container"
+            [ngClass]="{ 'img-active': info.filter === currentFilter() }"
+          />
+          <span
+            class="info-name"
+            [ngClass]="{ 'active-category': info.filter === currentFilter() }"
+            >{{ info.name }}</span
+          >
+          <span class="total-games">{{ info.totalGames }}</span>
+        </div>
+        <div *ngIf="info.filter === currentFilter()" class="underline"></div>
+      </li>
+    </ul>
+
+    <div class="child-category" [ngClass]="{ expanded: isExpanded }">
+      <div class="categories">
+        <div *ngFor="let provider of providers()" class="url-container">
+          <a
+            [routerLink]="'category'"
+            [queryParams]="{
+              filterType: 'provider',
+              filter: provider.provider
+            }"
+            routerLinkActive="router-link-active link-hover-green-line"
+          >
+            <span class="text-li">{{ provider.name }}</span>
+          </a>
+        </div>
+      </div>
+
+      <button class="see-more" (click)="toggleExpansion()">
+        <span>{{ isExpanded ? "See Less" : "See More" }}</span>
+        <img
+          src="assets/img/expand.svg"
+          alt="icon"
+          class="expand-icon"
+          [ngClass]="{ rotated: isExpanded }"
+        />
+      </button>
+    </div>
+  </article>
+
+  <router-outlet></router-outlet>
+</section>

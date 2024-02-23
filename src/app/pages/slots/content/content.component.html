@@ -1,0 +1,18 @@
+<article class="cards-area">
+  <div
+    *ngFor="let game of games()"
+    class="card"
+    (mouseover)="isButtonVisible = true"
+    (mouseout)="isButtonVisible = false"
+  >
+    <div class="card-content">
+      <div class="card-img">
+        <div class="card-button" [ngClass]="{ visible: isButtonVisible }">
+          <button>PLAY</button>
+        </div>
+        <img [src]="game.image" alt="{{ game.name }}" />
+      </div>
+      <p class="card-title">{{ game.name }}</p>
+    </div>
+  </div>
+</article>

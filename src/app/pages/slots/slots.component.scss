@@ -1,0 +1,195 @@
+$greenColor: #15af44;
+$darkBgColor: #1d242c;
+$mediumBgColor: #272d36;
+$textColor: #6a7787;
+
+@mixin link-hover-green-line {
+  &:hover {
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 2.91px;
+      width: 100%;
+      height: 3px;
+      border-radius: 3px 3px 0 0;
+      bottom: 0;
+      background-color: $greenColor;
+    }
+  }
+}
+
+section {
+  width: 100%;
+  height: calc(100vh - 60px);
+  padding: 8px;
+  overflow: none;
+}
+
+.image-container {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.category-container {
+  background-color: $darkBgColor;
+  border-radius: 5px;
+
+  ul {
+    color: $textColor;
+    margin: 0;
+    padding: 10px 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    li {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      padding: 10px;
+
+      .item-content {
+        display: flex;
+        align-items: center;
+
+        img {
+          margin-right: 5px;
+        }
+      }
+
+      .svg-container {
+        width: 20px;
+        height: 20px;
+      }
+
+      .img-active {
+        filter: invert(45%) sepia(91%) saturate(458%) hue-rotate(86deg)
+          brightness(99%) contrast(90%);
+      }
+
+      .underline {
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        bottom: 0;
+        background-color: $greenColor;
+      }
+
+      &.active {
+        .total-games {
+          color: $greenColor;
+        }
+      }
+
+      &:hover {
+        .svg-container {
+          filter: invert(45%) sepia(91%) saturate(458%) hue-rotate(86deg)
+            brightness(99%) contrast(90%);
+        }
+        @include link-hover-green-line;
+        color: $greenColor;
+      }
+    }
+  }
+}
+
+.child-category {
+  display: flex;
+  background-color: $mediumBgColor;
+  height: 50px;
+  overflow: hidden;
+
+  &.expanded {
+    height: auto;
+  }
+
+  .categories {
+    width: calc(100% - 80px);
+    display: flex;
+    flex-flow: row wrap;
+    transition: 0.2s ease-in-out;
+
+    .url-container {
+      position: relative;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+
+      a {
+        text-decoration: none;
+        color: $textColor;
+        font-size: 14px;
+        font-weight: 600;
+      }
+
+      &:hover {
+        color: #fff;
+        @include link-hover-green-line;
+      }
+    }
+  }
+}
+
+.see-more {
+  display: flex;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  padding: 20px 10px;
+  width: 130px;
+
+  .expand-icon {
+    width: 14px;
+    margin-left: 12px;
+    transition: 0.2s;
+  }
+
+  & .rotated {
+    transform: rotate(180deg);
+  }
+}
+
+.active {
+  & .category-item {
+    .info-name {
+      color: #fff;
+    }
+
+    .img-active {
+      filter: invert(45%) sepia(91%) saturate(458%) hue-rotate(86deg)
+        brightness(99%) contrast(90%);
+    }
+
+    .underline {
+      background-color: $greenColor;
+    }
+  }
+}
+
+.total-games {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-size: 11px;
+}
+
+.active-li {
+  color: $greenColor;
+}
