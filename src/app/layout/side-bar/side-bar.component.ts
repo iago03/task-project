@@ -17,10 +17,13 @@ export class SideBarComponent {
   currentLanguage = 'ge';
 
   constructor(public translate: TranslateService) {
-    translate.setDefaultLang('ge');
+    const defaultLang = localStorage.getItem('displayLang') || 'ge';
+    translate.setDefaultLang(defaultLang);
+    this.switchLanguage(defaultLang);
   }
 
   switchLanguage(language: string) {
+    localStorage.setItem('displayLang', language);
     this.currentLanguage = language;
     this.translate.use(language);
   }
